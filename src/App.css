@@ -1,38 +1,192 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-image: url('C:\Users\pavan\OneDrive\Desktop\react\weather app\weather-app\src\images\plain-light-blue-background-3440-x-1440-uzm4ioklgkh72jmt.jpg');
+}
+
 .App {
   text-align: center;
+  color: #fff; /* Default text color */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-bar {
+  margin: 20px auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.search-bar input {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px 0 0 5px; /* Rounded corners */
+  outline: none;
+  width: 300px; /* Fixed width for larger screens */
+  max-width: 80%; /* Responsive */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.search-bar button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0 5px 5px 0; /* Rounded corners */
+  background-color: #61dafb; /* Button color */
+  color: #282c34; /* Text color for button */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #21a1f1; /* Darker on hover */
+}
+
+.weather-today {
+  transition: background 0.5s; /* Smooth transition for background changes */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  color: white; /* Text color for better contrast */
+}
+
+/* Background for cold weather */
+.background-cold {
+  background: linear-gradient(180deg, #00aaff 0%, #0077cc 100%); /* Cold blue colors */
+}
+
+/* Background for cool weather */
+.background-cool {
+  background: linear-gradient(180deg, #0077cc 0%, #66aaff 100%); /* Cool blue colors */
+}
+
+/* Background for mild weather */
+.background-mild {
+  background: linear-gradient(180deg, #ffe600 0%, #ff9900 100%); /* Mild yellow-orange colors */
+}
+
+/* Background for warm weather */
+.background-warm {
+  background: linear-gradient(180deg, #ff9900 0%, #ff3300 100%); /* Warm red colors */
+}
+
+/* Additional styles for headings and paragraphs */
+.weather-today h1 {
+  font-size: 2.5rem; /* Larger title */
+  margin: 0;
+}
+
+.weather-today h3 {
+  font-size: 1.5rem; /* Current date */
+}
+
+.weather-today p {
+  font-size: 1.2rem; /* General weather details */
+  margin: 10px 0; /* Spacing between paragraphs */
+}
+
+/* Styling for the hourly weather section */
+/* Styling for the hourly weather section */
+.hourly-weather {
+  display: flex; /* Flexbox to arrange hourly cards horizontally */
+  justify-content: space-between; /* Space items evenly */
+  overflow-x: auto; /* Allow horizontal scroll for smaller screens */
+  padding: 10px; /* Adjusted padding for better spacing */
+  margin: 20px auto; /* Center the hourly weather section */
+  max-width: 1200px; /* Maximum width to match the weekly section */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better visibility */
+}
+
+.hourly-forecast {
+  text-align: center;
+  margin: 0 16px; /* Reduced spacing between hourly cards */
+  flex: 0 0 80px; /* Fixed width for hourly cards */
+}
+
+.hourly-forecast .hour {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px; /* Reduced space below the hour */
+}
+
+.hourly-forecast .temp {
+  font-size: 1rem;
+  margin-top: 5px; /* Reduced space above the temperature */
+}
+
+.hourly-forecast .weather-icon {
+  width: 50px; /* Adjusted icon size */
+  height: 50px; /* Adjusted icon size */
+  margin: 5px auto; /* Reduced margin around the icon */
+}
+
+/* Styling for the weekly weather section */
+.weather-weekly {
+  display: flex; /* Align items horizontally */
+  justify-content: space-between; /* Space out items evenly */
+  margin: 20px auto; /* Center the forecast section */
+  max-width: 1200px; /* Maximum width for better layout */
+  padding: 10px; /* Padding around the container */
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
+.daily-forecast {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  margin: 10px; /* Spacing between forecast cards */
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Center text */
+  flex: 0 0 150px; /* Set a fixed width and allow it to shrink/grow */
+  min-width: 120px; /* Set a minimum width for each forecast card */
+  max-width: 180px; /* Set a maximum width for each forecast card */
+}
+
+.daily-forecast .day {
+  font-weight: bold; /* Emphasize the day */
+}
+
+.weather-icon {
+  width: 60px; /* Fixed size for icons */
+  height: 50px;
+}
+
+@media (max-width: 768px) {
+  .weather-today, .daily-forecast {
+    width: 90%; /* Full width on smaller screens */
   }
-  to {
-    transform: rotate(360deg);
+
+  .search-bar input {
+    width: 80%; /* Responsive input width */
+  }
+
+  .hourly-weather {
+    overflow-x: auto; /* Ensure horizontal scrolling on smaller screens */
+  }
+}
+
+.map-container {
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow for smooth edges */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  margin-top: 20px; /* Space above the map */
+}
+
+/* Style for error messages */
+.error-message {
+  color: red; /* Red color for error text */
+  margin: 10px 0; /* Margin around error text */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .map-container {
+    height: 300px; /* Adjust height for mobile */
   }
 }
