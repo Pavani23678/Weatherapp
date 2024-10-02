@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudSun,faWind,faTint} from '@fortawesome/free-solid-svg-icons';
+import { faCloudSun} from '@fortawesome/free-solid-svg-icons';
 
 
 const WeatherToday = ({ weatherData, isMobile }) => {
@@ -46,12 +46,7 @@ const WeatherToday = ({ weatherData, isMobile }) => {
           <h2>{ Math.round(weatherData.main.temp)} °C</h2>
           <p>{weatherData.weather[0].description}</p>
           <FontAwesomeIcon icon={faCloudSun} />
-          <p>
-            <FontAwesomeIcon icon={faWind} /> Wind: {weatherData.wind.speed} mph
-          </p>
-          <p>
-            <FontAwesomeIcon icon={faTint} /> Humidity: {weatherData.main.humidity}%
-          </p>
+
         </div>
       ) : (
         <p>Loading...</p>
