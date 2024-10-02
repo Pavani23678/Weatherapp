@@ -4,7 +4,7 @@ export const FETCH_WEATHER_TODAY = 'FETCH_WEATHER_TODAY';
 export const FETCH_WEATHER_WEEKLY = 'FETCH_WEATHER_WEEKLY';
 
 
-const apiKey = 'cbb4cbcd3a35d7abddd827cf13751700';
+const apiKey = 'fce7405e7e76d1fde4aab9c62773edab';
 const baseUrl = 'https://api.openweathermap.org/data/2.5/';
 
 export const fetchWeatherToday = createAsyncThunk(
